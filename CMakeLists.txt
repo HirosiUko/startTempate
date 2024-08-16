@@ -10,6 +10,7 @@ set( SOURCES
     main.cpp
     network/PEPS_Networking.cpp
     hj_template/HJ_Template.cpp
+    hj_template/HJ_Template_Handler.cpp
 )
 
 add_executable(peps_client ${SOURCES})

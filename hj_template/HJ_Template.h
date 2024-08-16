@@ -4,7 +4,6 @@
 #include "HJ_Template_Handler.h"
 
 #define LOG initial_logger()
-// #define SERVICE_NAME "HJ_Template"
 class Template
 {
 public:
@@ -22,13 +21,10 @@ public:
 private:
     Poco::Logger& log;
     MyTestService_Handler _my_handler;
+    Poco::AutoPtr<MessageService> _service;
     
     Template();
-
-    ~Template()
-    {
-        log.information("Template Destructor");
-    }
+    ~Template(){};
 
     Template(const Template &) = delete;
     Template &operator=(const Template &) = delete;

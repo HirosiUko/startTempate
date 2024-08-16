@@ -4,7 +4,7 @@
 #include "MessageHandler.h"
 #include <Poco/Thread.h>
 #include <Poco/Logger.h>
-class MessageService
+class MessageService : public Poco::RefCountedObject
 {
 public:
     MessageService(u_int32_t id, MessageHandler &_handler) : _id(id), _service_handler(_handler)
@@ -13,9 +13,9 @@ public:
         thread1.start(*_service_looper);
 
         // FOR Testing
-        // _service_queue.sendMessage({"Hello from main thread to Thread 1!", 1});
-        // Poco::Thread::sleep(2000);
-        // _service_looper->stop();
+        _service_queue.sendMessage({"Hello from main thread to Thread 1!", 1});
+        Poco::Thread::sleep(2000);
+        _service_looper->stop();
         
     }
     ~MessageService(){

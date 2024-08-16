@@ -1,5 +1,6 @@
 #ifndef LOG_H
 #define LOG_H
+#include <Poco/Logger.h>
 #include <Poco/ConsoleChannel.h>
 #include <Poco/FormattingChannel.h>
 #include <Poco/PatternFormatter.h>
